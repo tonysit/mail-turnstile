@@ -1,0 +1,31 @@
+
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "mail-turnstile",
+  "main": "src/index.js",
+  "compatibility_date": "2026-11-24",
+  "preview_urls": false,
+
+  "vars": {
+    "ALLOWED_ORIGINS": "https://me.tonysit.com",
+    "CONTACT_RECIPIENT": "tony1994217@gmail.com"
+  },
+
+  "durable_objects": {
+    "bindings": [
+      {
+        "name": "MAIL_STATE",
+        "class_name": "MailState"
+      }
+    ]
+  },
+
+  "migrations": [
+    {
+      "tag": "v1",
+      "new_sqlite_classes": [
+        "MailState"
+      ]
+    }
+  ]
+}
